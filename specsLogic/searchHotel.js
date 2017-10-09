@@ -22,15 +22,9 @@ class SearchLogic extends SpecBaseLogic {
   searchHotel() {
     browser.waitForAngularEnabled(false);
     this.page.destination.sendKeys(searchInfo.Destination);
-
-
     browser.executeScript('arguments[0].click()', this.page.selectCity.getWebElement())
-
     this.page.setCurrentDate();
-    console.log(this.page.setCurrentDate())
-    // this.page.setCheckoutDate();
-    console.log(this.page.setCheckoutDate())
-    browser.sleep(4000);
+    this.page.setCheckoutDate();
   }
 }
 
