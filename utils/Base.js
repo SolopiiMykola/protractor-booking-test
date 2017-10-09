@@ -18,18 +18,6 @@ class Base {
   get waitUntilDisplayedTimeout() { return 1000; }
   get waitUntilElementDisplayedTimeout() { return 1000; }
 
-  autoLogin() {
-    browser.get(this.baseUrl);
-
-    browser.executeScript((...args) => {
-      const autoLoginInner = args[0];
-
-      localStorage.setItem('lscache-user', JSON.stringify(autoLoginInner.user));
-      localStorage.setItem('lscache-timeout', autoLoginInner.timeout);
-      localStorage.setItem('lscache-userSettings', JSON.stringify(autoLoginInner.userSettings));
-    }, autoLogin);
-  }
-
   get() {
     browser.get(this.url);
     return this.waitUntilDisplayed();
