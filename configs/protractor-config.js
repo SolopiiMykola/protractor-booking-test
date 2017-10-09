@@ -5,8 +5,6 @@ require('babel-register')({ presets: ['es2015'] });
 
 const config = require('./app.js');
 const SpecReporter = require('jasmine-spec-reporter');
-const Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
-const Jasmine2ScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 
 // noinspection JSAnnotator
 exports.config = {
@@ -26,8 +24,6 @@ exports.config = {
   onPrepare() {
     // set browser size...
     browser.manage().window().setSize(1280, 1024);
-    jasmine.getEnv().addReporter(new Jasmine2HtmlReporter());
-    jasmine.getEnv().addReporter(new Jasmine2ScreenshotReporter());
     true;
 
     './screens';
@@ -62,6 +58,6 @@ exports.config = {
     displaySpecDuration: true,
     // overrides jasmine's print method to report dot syntax for custom reports
     print() {},
-    defaultTimeoutInterval: 500000,
+    defaultTimeoutInterval: 50000,
   },
 };
